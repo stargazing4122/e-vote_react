@@ -1,9 +1,8 @@
+import HomeScreen from "./components/HomeScreen";
 
 function App() {
   return (    
-    <h1>
-      hi
-    </h1>
+    <HomeScreen />
   );
 }
 
