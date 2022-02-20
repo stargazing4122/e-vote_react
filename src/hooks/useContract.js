@@ -1,9 +1,15 @@
+import Contract from '../build/contracts/Voting.json';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-const useWeb3 = () => {
+
+const useContract = () => {
 
     const [web3, setWeb3] = useState(null);
     const [error, setError] = useState(false);
+    const [Voting, setVoting] = useState(0);
+
+    const abi = Contract.abi;
+    const contractAddress = Contract.networks[5777].address;
 
     const getWeb3Provider = async() => {
 
@@ -25,14 +31,28 @@ const useWeb3 = () => {
             setError(true);
         }
     }
+
+    const getInstanceContract = () => {
+        if(web3){
+            const contract = new web3.eth.Contract(abi, contractAddress);
+            setVoting(contract);
+        }
+    }
     useEffect(() => {
         getWeb3Provider();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        getInstanceContract();
+    }, [web3]);
 
     return {
         web3,
-        error
+        Voting,
+        error,
+
     }
+
 }
 
-export default useWeb3
+export default useContract;

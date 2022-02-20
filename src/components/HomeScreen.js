@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import useWeb3 from '../hooks/useWeb3'
-import Web3 from "web3";
+import useContract from '../hooks/useContract';
 import ErrorComponent from './error/ErrorComponent';
 import VotacionComponent from './votacion/VotacionComponent';
 
 
 const HomeScreen = () => {
-    const {web3, error} = useWeb3();
-    console.log(web3, error)
+    const {web3, Voting, error} = useContract();
+    console.log(web3, Voting, error)
 
   return (
     <div>
