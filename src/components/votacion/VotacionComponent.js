@@ -14,7 +14,7 @@ const VotacionComponent = () => {
   return (
     <>
       <h2>Votacion component</h2>
-      <div className='candidates-grid'>
+      <div className='candidates_grid'>
           {
             candidates.map( candidate => (
               <Candidato key={candidate.id} {...candidate}/>

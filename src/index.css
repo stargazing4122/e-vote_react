@@ -3,3 +3,113 @@ body {
   color: azure;
 }
 
+
+.candidates_grid {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* cards */
+.card {
+  background-color: inherit;
+  width: 350px;
+  min-width: 350px;
+  height: 500px;
+  border-radius: 9px;
+  box-shadow: 3px 3px 10px white;
+  margin: 10px;
+}
+
+.card--red {
+  background-color: indianred;
+}
+
+.card--yellow {
+  background-color: burlywood;
+}
+
+.card--blue {
+  background-color: cornflowerblue;
+}
+
+.card--green {
+  background-color: aquamarine;
+}
+
+.card--purple {
+  background-color: slateblue;
+}
+
+.card--orange {
+  background-color: coral;
+}
+
+.card__title {
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card__title--black {
+  color: black;
+}
+
+.card__image {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+.card__image img {
+  width: 100%;
+}
+
+.card__text {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 114px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+.card__text-datos {
+  overflow: hidden;
+  width: 60%;
+}
+
+.card__text--black {
+  color: black;
+}
+.card__title-votes {
+  color: aquamarine;
+  text-transform: lowercase;
+  font-size: 20px;
+}
+
+.card__text-info {
+  font-weight: bold;
+}
+
+
+.card__button {
+  margin-top: 10px;
+  text-align: center;
+  background-color: red;
+}
+
+.card__button {
+  
+}
+button {
+  padding: 5px 10px;
+  font-size: xx-large;
+  cursor: pointer;
+}
