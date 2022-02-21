@@ -6,13 +6,13 @@ import VotacionComponent from './votacion/VotacionComponent';
 
 
 const HomeScreen = () => {
-const {error} = useContext(VotingContext)
+const {userAddress} = useContext(VotingContext)
 
   return (
     <>
       <Navbar />
       {
-          error ? <ErrorComponent /> : <VotacionComponent />
+          !userAddress ? <ErrorComponent /> : <VotacionComponent />
       }
       <footer className='footer' >&copy; All right reserved</footer>
     </>
