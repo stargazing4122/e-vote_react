@@ -9,7 +9,7 @@ contract Voting {
         uint totalVotes;
     }
 
-    uint private topIdCandidate = 0;
+    uint public topIdCandidate = 0;
     mapping (uint => Candidate) public candidates;
 
     //votantes

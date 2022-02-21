@@ -3,7 +3,7 @@ import React from 'react'
 const Candidato = () => {
   return (
     <div>
-      candidato 
+      this is a candidate
     </div>
   )
 }

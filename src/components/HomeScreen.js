@@ -1,15 +1,16 @@
-import useContract from '../hooks/useContract';
+import { useContext } from 'react';
+import VotingContext from '../context/VotingContext';
 import ErrorComponent from './error/ErrorComponent';
 import VotacionComponent from './votacion/VotacionComponent';
 
 
 const HomeScreen = () => {
-    const {web3, Voting, error} = useContract();
-    console.log(web3, Voting, error)
+const {error, userAddress} = useContext(VotingContext)
 
   return (
     <div>
       <h1>Welcome to vote app</h1>
+      <p>User: {userAddress}</p>
       {
           error ? <ErrorComponent /> : <VotacionComponent />
       }
