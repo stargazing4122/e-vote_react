@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import VotingContext from '../../context/VotingContext'
 
 const Candidato = ({id, name, association, totalVotes}) => {
 
+  const {Voting, userAddress} = useContext(VotingContext);
+
   const handleVotar = () => {
-    console.log(`Votando por el candidato ${id}`)
+
+    if (Voting) {
+      Voting.methods.vote(id)
+        .send({from:userAddress})
+        .then(console.log)
+      
+    }
+
   }
   return (
     <div className="card">

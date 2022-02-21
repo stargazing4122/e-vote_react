@@ -9,7 +9,7 @@ const VotacionComponent = () => {
   const { Voting, userAddress } = useContext(VotingContext);
   const {numberOfCandidates} = useNumberOfCandidates();
   const {candidates} = useCandidates();
-
+  console.log(Voting)
 
   return (
     <>
