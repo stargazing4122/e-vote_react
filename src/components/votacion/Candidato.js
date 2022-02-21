@@ -1,19 +1,23 @@
 import React, { useContext } from 'react'
 import VotingContext from '../../context/VotingContext'
 
-const Candidato = ({id, name, association, totalVotes}) => {
+const Candidato = ({id, name, association, totalVotes, setCandidates}) => {
 
   const {Voting, userAddress} = useContext(VotingContext);
 
-  const handleVotar = () => {
+  const handleVotar = async () => {
 
-    if (Voting) {
-      console.log(id)
-      Voting.methods.vote(id)
+    try {
+      await Voting.methods.vote(id)
         .send({from:userAddress})
-        .then(console.log)
-      
+      setCandidates( candidates => candidates.map(candidate => (
+        candidate.id === id ? {...candidate, totalVotes: parseInt(candidate.totalVotes) + 1}: candidate
+      )));
+    } catch (err) {
+      console.log(err)
     }
+      
+
 
   }
   return (

@@ -7,7 +7,7 @@ const useCandidates = () => {
     const {Voting, userAddress} = useContext(VotingContext);
     const {numberOfCandidates} = useNumberOfCandidates();
 
-    const [candidates, setcandidates] = useState([]);
+    const [candidates, setCandidates] = useState([]);
     //new code
     const getCandidates = async() => {
         const listOfCandidates = [];
@@ -23,14 +23,14 @@ const useCandidates = () => {
             }
             listOfCandidates.push(newCandidate); 
         }
-        setcandidates(listOfCandidates);
+        setCandidates(listOfCandidates);
     }
 
     useEffect(() => {
         getCandidates()
     }, [numberOfCandidates]);
 
-    return {candidates};
+    return {candidates, setCandidates};
 
 }
 export default useCandidates;
