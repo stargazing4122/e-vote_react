@@ -8,6 +8,7 @@ const Candidato = ({id, name, association, totalVotes}) => {
   const handleVotar = () => {
 
     if (Voting) {
+      console.log(id)
       Voting.methods.vote(id)
         .send({from:userAddress})
         .then(console.log)

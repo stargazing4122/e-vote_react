@@ -17,14 +17,14 @@ contract Voting {
 
     //para asignar un id a candidatos nuevos
 
-    //modificadores al votar
+    //modificadores al votar , omitido por ahora
     modifier onlyHasNoVote () {
         require(voters[msg.sender] == false, 'you have already voted');
         _;
     }
 
     modifier validCandidate (uint _candidateId) {
-        require(_candidateId < topIdCandidate && _candidateId > 0);
+        require(_candidateId <= topIdCandidate && _candidateId > 0);
         _;
     }
 
@@ -45,7 +45,7 @@ contract Voting {
     }
 
     //main function
-    function vote ( uint _candidateId ) public onlyHasNoVote validCandidate(_candidateId){
+    function vote ( uint _candidateId ) public validCandidate(_candidateId){
         candidates[_candidateId].totalVotes ++;
         voters[msg.sender] = true;
         emit Vote(msg.sender, _candidateId);
